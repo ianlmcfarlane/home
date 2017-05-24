@@ -1,4 +1,4 @@
 ---
 layout: home
 ---
-Below are some of my recent projects and posts! Check it out- all of everything is also available on Github.
+This is a personal portfolio/blog where I have begun to document some of my projects. All code is available on Github.
