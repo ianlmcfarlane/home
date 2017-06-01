@@ -2,9 +2,9 @@
 layout: post
 title:  "Spotify Song Repetition Visualization Project"
 date:   2017-02-01 00:00:00 -0700
-categories: jekyll update
+categories: posts
 ---
-![](/assets/robot_rock.png)
+![](/assets/spotifyapp/robot_rock.png)
 *Daft Punk - Robot Rock [https://ianlmcfarlane.github.io/spotifyApp/#/track/4zu9wo2FXoBSsKjO6tRB3R/analysis](https://ianlmcfarlane.github.io/spotifyApp/#/track/4zu9wo2FXoBSsKjO6tRB3R/analysis)*
 
 
@@ -17,7 +17,7 @@ This project started out in the hopes of exploring user listening data since Spo
 
 ## Data
 
-The endpoint in question is documented [here](https://developer.spotify.com/web-api/get-audio-analysis/). For a given track, it returns a sizeable  JSON object that quantitatively approximates how the song sounds so that Spotify may programmatically create playlists, recommendations, etc. The  attribute I was most interested in was that of 'Segments.' Segments are small (<1s) chunks of the song containing duration, multiple decibel levels, a 1x12 pitches array, and a 1x12 timbre array with a confidence level. This was a great start, but with zero documentation on this object provided by Spotify, it wasnt going to be very useful. After some sleuthing, I discovered that this object was the product of Echo Nest, which was acquired by Spotify in 2014. After this I was able to dig up some old Echo Nest documentation that was very useful ([https://ianlmcfarlane.github.io/assets/echonest_analyzer_docs.pdf](/assets/echonest_analyzer_docs.pdf))
+The endpoint in question is documented [here](https://developer.spotify.com/web-api/get-audio-analysis/). For a given track, it returns a sizeable  JSON object that quantitatively approximates how the song sounds so that Spotify may programmatically create playlists, recommendations, etc. The  attribute I was most interested in was that of 'Segments.' Segments are small (<1s) chunks of the song containing duration, multiple decibel levels, a 1x12 pitches array, and a 1x12 timbre array with a confidence level. This was a great start, but with zero documentation on this object provided by Spotify, it wasnt going to be very useful. After some sleuthing, I discovered that this object was the product of Echo Nest, which was acquired by Spotify in 2014. After this I was able to dig up some old Echo Nest documentation that was very useful ([https://ianlmcfarlane.github.io/assets/spotifyapp/echonest_analyzer_docs.pdf](/assets/spotifyapp/echonest_analyzer_docs.pdf))
 
 ## Method
 
