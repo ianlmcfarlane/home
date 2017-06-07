@@ -23,7 +23,7 @@ The endpoint in question is documented [here](https://developer.spotify.com/web-
 
 Many of the challenges surrounding this project were related to learning React.js. The central problem still remained: how to efficiently compare each segement to determine if it was repeated. Since each segment is multidimensional and each segment attribute was also multidimensional, a brute force loop through each array of arrays would get operationally intensive very quickly. Instead I had to come up with a different comparison algorithm.
 
-The basic idea was to loop through the array and compare the current element to elements already passed over. Pretty Standard. I only wanted to find the most recently repeated segment, I did not need to find all matches, hence `Array.lastIndexOf(element)`. Below is the basic function for comparison. The array pitch/timbre comparison functions calculate cosine similary `mathjs.dot(a,b)/(mathjs.norm(a)*mathjs.norm(b))` which is basically the amount of vector **a** that is in **b** when **a** is projected onto **b**.
+The basic idea was to loop through the array and compare the current element to elements already passed over. Pretty Standard. I only wanted to find the most recently repeated segment, I did not need to find all matches, hence `Array.lastIndexOf(element)`. Below is the basic function for comparison. The array pitch/timbre comparison functions calculate cosine similary `mathjs.dot(a,b)/(mathjs.norm(a)*mathjs.norm(b))` which is esentially the amount of vector **a** that is in **b** when **a** is projected onto **b**.
 
 
 ```javascript
@@ -51,6 +51,11 @@ for (let i = 4; i < arr.length-1; i++){ //average 5 segment window
 }
 ```
 
-(...)
+With the ouput array of index pairs, it was a simple matter of mapping the segment indexes to pixels scaled to the length of the song (the segements are not actually equal, but for simplicities sake, I assumed they were). With a little D3.js this was pretty simple. I also plotted the max decible 
+level of each segment to give some context to the repetition/arcs. I think that one of the best songs that I have come across is Daft Punk - Robot Rock (linked at the top of the post).
+
+## Shortcomings
+
+The first problem with attempting to find repetition is that the song itself is a superpostition of many different repeating intruments. In any given segment, the different instruments may collide in different ways, leading to decible level change or maybe slightly different timbre. Unless you have MIDI files for a song, this is really just the nature of the post production game.
 
 The writeup is still in progress. There is more to come, but still take a look at the app. [Check it out!](https://ianlmcfarlane.github.io/spotifyApp/) FYI you need a Spotify account.
